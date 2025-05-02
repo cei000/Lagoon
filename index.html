@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laguna</title>
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"></script>
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Helvetica Neue', sans-serif;
+        background-color: #b6d9dc;
+        color: #000000;
+      }
+      header {
+        padding: 20px;
+        background-color: rgb(182, 217, 220,0.7);
+        backdrop-filter: blur(10px);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #8fbfc8;
+        margin-left: 20px;
+      }
+      nav {
+        margin-right: 20px;
+      }
+      nav a {
+        margin: 0 10px;
+        text-decoration: none;
+        color: #8fbfc8;
+        font-weight: bold;
+      }
+      .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding-top: 140px;
+        padding-bottom: 60px;
+        animation: fadeIn 2s ease;
+      }
+      .hero h1 {
+        font-size: 3rem;
+        color: #8fbfc8;
+        margin-bottom: 20px;
+      }
+      .hero p {
+        font-size: 1.2rem;
+        color: #555;
+        max-width: 700px;
+      }
+      .spline-container {
+        max-width: 100%;
+        height: 600px;
+        margin: 0 auto 40px auto;
+        transition: transform 0.5s ease;
+      }
+      .spline-container:hover {
+        transform: scale(1.02);
+      }
+      .carousel {
+        margin: 40px auto;
+        padding: 20px;
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        max-width: 90%;
+        backdrop-filter: blur(15px);
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        scroll-behavior: smooth;
+      }
+      .carousel::-webkit-scrollbar {
+        display: none;
+      }
+      .carousel-item {
+        min-width: 250px;
+        height: 350px;
+        background: rgba(255, 255, 255, 0.25);
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #8fbfc8;
+        text-align: center;
+        transition: transform 0.3s ease, background 0.3s ease;
+      }
+      .carousel-item:hover {
+        transform: scale(1.05);
+        background: rgba(255, 255, 255, 0.4);
+      }
+      .highlight {
+        text-align: center;
+        padding: 80px 20px;
+        background: #b6d9dc;
+        animation: fadeInUp 1.5s ease;
+      }
+      .highlight h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: #ffffff;
+      }
+      .highlight p {
+        max-width: 600px;
+        margin: 0 auto;
+        color: #555;
+        font-size: 1rem;
+      }
+      .shop-now {
+        padding: 60px 20px;
+        background-color: #b6d9dc;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .shop-item {
+        background-color: #ceeaef;
+        padding: 20px;
+        border-radius: 15px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        cursor: pointer;
+      }
+      .shop-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        background-color: #eef2f5;
+      }
+      .shop-item img {
+        width: 100%;
+        border-radius: 12px;
+        margin-bottom: 10px;
+      }
+      .shop-item h3 {
+        margin: 10px 0 5px;
+        font-size: 1.1rem;
+        color: #8fbfc8;
+      }
+      .shop-item p {
+        font-size: 0.9rem;
+        color: #666;
+      }
+    .card-section {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: 40px auto;
+    }
+    .card {
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      border-radius: 15px;
+      overflow: hidden;
+    }
+    .card img {
+      width: 50%;
+      height: auto;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 20px;
+      flex: 1;
+      color: #555;
+    }
+    .reverse {
+      flex-direction: row-reverse;
+    }
+      footer {
+        text-align: center;
+        padding: 40px 20px;
+        font-size: 0.9rem;
+        background-color: #b6d9dc;
+        color: #666;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      @keyframes fadeInUp {
+        from { transform: translateY(20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">Laguna</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="shop.html">Shop</a>
+        <a href="sustainability.html">Sustainability</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Laguna: Beauty With Purpose</h1>
+      <p>
+        Welcome to the future of fashion and skincare — where sustainability, ethics, and elegance meet. Discover curated collections that honor the planet and empower self-expression.
+      </p>
+    </section>
+
+    <div class="spline-container">
+      <spline-viewer url="https://prod.spline.design/uoRVM2ElZ0w22zQj/scene.splinecode"></spline-viewer>
+    </div>
+
+    <div class="carousel">
+        <div class="carousel-item" style="background-image: url('assets/img/home0.jpg'); background-size: cover; background-position: center;">
+          Sustainable Skincare
+        </div>
+        <div class="carousel-item" style="background-image: url('assets/img/home1.jpg'); background-size: cover; background-position: center;">
+          Ethical Apparel
+        </div>
+        <div class="carousel-item" style="background-image: url('assets/img/home2.jpg'); background-size: cover; background-position: center;">
+          Eco Accessories
+        </div>
+        <div class="carousel-item" style="background-image: url('assets/img/home3.jpg'); background-size: cover; background-position: center;">
+          Natural Beauty
+        </div>
+        <div class="carousel-item" style="background-image: url('assets/img/home4.jpg'); background-size: cover; background-position: center;">
+          Recycled Fashion
+        </div>
+        <div class="carousel-item" style="background-image: url('assets/img/home5.jpg'); background-size: cover; background-position: center;">
+            Food
+          </div>
+      </div>
+      
+      <section class="card-section">
+        <div class="card">
+          <img src="assets/img/home12.png" alt="Skincare">
+          <div class="card-content">
+            <h3>Natural Skincare</h3>
+            <p>Our skincare line uses organic ingredients that nourish your skin without harming the environment.</p>
+          </div>
+        </div>
+    
+        <div class="card reverse">
+          <img src="assets/img/home12.png" alt="Fashion">
+          <div class="card-content">
+            <h3>Sustainable Fashion</h3>
+            <p>Discover our apparel collection, crafted from eco-friendly materials and ethical practices.</p>
+          </div>
+        </div>
+      </section>
+
+
+
+      
+    <section class="highlight">
+      <h2>Conscious Collections</h2>
+      <p>
+        Every product is mindfully sourced, cruelty-free, and crafted for longevity. At Laguna, we celebrate minimalism, effectiveness, and the beauty of ethical design.
+      </p>
+    </section>
+
+    <section class="shop-now">
+      <div class="shop-item">
+        <img src="assets/img/home10.jpg" alt="Skincare" />
+        <h3>Glow Serum</h3>
+        <p>Brighten and hydrate with our all-natural formula.</p>
+      </div>
+      <div class="shop-item">
+        <img src="assets/img/home7.jpg" alt="Fashion" />
+        <h3>Organic Linen Set</h3>
+        <p>Breezy, breathable, and sustainably made.</p>
+      </div>
+      <div class="shop-item">
+        <img src="assets/img/home12.png" alt="Accessory" />
+        <h3>Recycled Tote</h3>
+        <p>Stylish utility crafted from upcycled materials.</p>
+      </div>
+    </section>
+
+    <section class="shop-now">
+        <div class="shop-item">
+          <spline-viewer url="https://prod.spline.design/uoRVM2ElZ0w22zQj/scene.splinecode" style="width: 100%; height: 250px; border-radius: 12px; margin-bottom: 10px;"></spline-viewer>
+          <h3>Glow Serum</h3>
+          <p>Brighten and hydrate with our all-natural formula.</p>
+        </div>
+        <div class="shop-item">
+          <spline-viewer url="https://prod.spline.design/uoRVM2ElZ0w22zQj/scene.splinecode" style="width: 100%; height: 250px; border-radius: 12px; margin-bottom: 10px;"></spline-viewer>
+          <h3>Organic Linen Set</h3>
+          <p>Breezy, breathable, and sustainably made.</p>
+        </div>
+        <div class="shop-item">
+          <spline-viewer url="https://prod.spline.design/uoRVM2ElZ0w22zQj/scene.splinecode" style="width: 100%; height: 250px; border-radius: 12px; margin-bottom: 10px;"></spline-viewer>
+          <h3>Recycled Tote</h3>
+          <p>Stylish utility crafted from upcycled materials.</p>
+        </div>
+      </section>
+  
+      <section class="values" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 40px; padding: 40px 20px; background: #b6d9dc; text-align: center;">
+        <div style="max-width: 300px; padding: 20px; border-radius: 15px; cursor: pointer; animation: floatUp 0.3s ease; transition: transform 0.4s ease;" onmouseover="this.style.transform='translateY(-8px)'" onmouseout="this.style.transform='translateY(0)'">
+          <img src="https://cdn-icons-png.flaticon.com/512/2913/2913461.png" alt="Sustainability" style="width: 60px; margin-bottom: 15px;" />
+          <h3 style="color: #8fbfc8; font-size: 1.2rem;">Sustainability</h3>
+          <p style="color: #555; font-size: 0.95rem;">We use earth-friendly materials and eco-conscious practices across all our products and packaging.</p>
+        </div>
+        <div style="max-width: 300px; padding: 20px; border-radius: 15px; cursor: pointer; animation: floatUp 0.3s ease; transition: transform 0.4s ease;" onmouseover="this.style.transform='translateY(-8px)'" onmouseout="this.style.transform='translateY(0)'">
+          <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Ethical Sourcing" style="width: 60px; margin-bottom: 15px;" />
+          <h3 style="color: #8fbfc8; font-size: 1.2rem;">Ethical Sourcing</h3>
+          <p style="color: #555; font-size: 0.95rem;">We partner with fair trade-certified artisans and ensure responsible labor at every stage.</p>
+        </div>
+        <div style="max-width: 300px; padding: 20px; border-radius: 15px; cursor: pointer; animation: floatUp 0.3s ease; transition: transform 0.4s ease;" onmouseover="this.style.transform='translateY(-8px)'" onmouseout="this.style.transform='translateY(0)'">
+          <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Transparency" style="width: 60px; margin-bottom: 15px;" />
+          <h3 style="color: #8fbfc8; font-size: 1.2rem;">Transparency</h3>
+          <p style="color: #555; font-size: 0.95rem;">We openly share where and how our products are made to empower informed choices.</p>
+        </div>
+      </section>
+
+
+
+      <section class="social-preview" style="padding: 60px 20px; background-color: #b6d9dc; text-align: center; border-top: 2px solid #e0e0e0; border-bottom: 2px solid #e0e0e0;">
+        <div style="margin-bottom: 30px;">
+          <h2 style="font-size: 2.2rem; color: #8fbfc8; margin: 0 0 10px;">Follow Us on Instagram</h2>
+          <p style="max-width: 600px; margin: 0 auto; color: #555; font-size: 1rem;">
+            Join the Laguna community and stay inspired with our latest looks, behind-the-scenes stories, and sustainable style ideas.
+          </p>
+        </div>
+        <div style="display: flex; justify-content: center;">
+          <iframe src="https://snapwidget.com/embed/1019034" 
+                  style="border:none; overflow:hidden; width:100%; max-width:800px; height:500px;" 
+                  allowtransparency="true" frameborder="0" scrolling="no">
+          </iframe>
+        </div>
+      </section>
+
+
+    <section style="background-color: #b6d9dc; padding: 60px 20px; text-align: center;">
+        <h2 style="color: #8fbfc8; font-size: 2rem; margin-bottom: 20px;">Stay in the loop</h2>
+        <p style="color: #555; max-width: 600px; margin: 0 auto 30px;">
+          Subscribe to our newsletter and be the first to hear about exclusive drops, sustainable tips, and more from the Laguna world.
+        </p>
+        <form style="display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; max-width: 600px; margin: 0 auto;">
+          <input type="email" placeholder="Enter your email" required
+                 style="padding: 12px 20px; border-radius: 30px; border: 1px solid #ccc; flex: 1; min-width: 250px;" />
+          <button type="submit"
+                  style="padding: 12px 30px; border: none; background-color: #8fbfc8; color: white; border-radius: 30px; cursor: pointer; font-weight: bold;">
+            Subscribe
+          </button>
+        </form>
+      </section>
+      
+
+    <footer>
+      &copy; 2025 Laguna. All rights reserved. | Clean. Ethical. Intentional.
+    </footer>
+  </body>
+</html>

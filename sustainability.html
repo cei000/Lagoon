@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Laguna - Sustainability</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Helvetica+Neue:400,700">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #b6d9dc;
+      color: #8fbfc8;
+    }
+
+    header {
+      padding: 20px;
+      background-color: rgba(182, 217, 220, 0.7);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #8fbfc8;
+      margin-left: 20px;
+    }
+
+    nav {
+      margin-right: 20px;
+    }
+
+    nav a {
+      margin: 0 10px;
+      color: #8fbfc8;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+      background-color: #b6d9dc;
+      color: #666;
+      font-weight: bold;
+    }
+
+    .carousel-section {
+      padding: 100px 20px 60px;
+      text-align: center;
+      background: #ceeaef;
+    }
+
+    .carousel-section.alt {
+      background: #b6d9dc;
+    }
+
+    .carousel-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .carousel-tile {
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 20px;
+      max-width: 260px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .carousel-tile img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .carousel-horizontal {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .carousel-box {
+      flex: 0 0 auto;
+      background: rgba(255, 255, 255, 0.3);
+      padding: 30px;
+      min-width: 300px;
+      scroll-snap-align: center;
+      border-radius: 15px;
+      font-weight: bold;
+      color: #8fbfc8;
+    }
+
+    .carousel-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding-top: 20px;
+    }
+
+    .carousel-gallery img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .testimonial-carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .testimonial-slide {
+      flex: 0 0 auto;
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      min-width: 300px;
+      border-radius: 15px;
+      scroll-snap-align: center;
+      font-style: italic;
+      color: #8fbfc8;
+    }
+
+    .collaboration-carousel {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .collab-card {
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    .collab-card img {
+      width: 40%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .collab-text {
+      padding: 20px;
+      flex: 1;
+      color: #8fbfc8;
+    }
+
+    @media (max-width: 768px) {
+      .collab-card {
+        flex-direction: column;
+      }
+      .collab-card img {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Laguna</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="shop.html">Shop</a>
+      <a href="sustainability.html">Sustainability</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Page content remains unchanged -->
+
+  <section class="carousel-section">
+    <h2>Our Sustainability Partners</h2>
+    <div class="carousel-row">
+      <div class="carousel-tile">
+        <img src="assets/img/home9.jpg" alt="Fair Trade">
+        <h3>Fair Trade Alliance</h3>
+        <p>Empowering local farmers and artisans through fair trade certification.</p>
+      </div>
+      <div class="carousel-tile">
+        <img src="assets/img/home10.jpg" alt="EcoCert">
+        <h3>EcoCert</h3>
+        <p>Ensuring our organic skincare meets global ecological standards.</p>
+      </div>
+      <div class="carousel-tile">
+        <img src="assets/img/home11.jpg" alt="Carbon Neutral">
+        <h3>Carbon Neutral Co.</h3>
+        <p>Partnering to offset emissions across all our shipping and logistics.</p>
+      </div>
+      <div class="carousel-tile">
+        <img src="assets/img/home12.png" alt="Textile Exchange">
+        <h3>Textile Exchange</h3>
+        <p>Promoting sustainable fibers across our apparel supply chain.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="carousel-section alt">
+    <h2>Global Impact</h2>
+    <div class="carousel-horizontal">
+      <div class="carousel-box">Zero Waste Initiatives</div>
+      <div class="carousel-box">Plastic-Free Packaging</div>
+      <div class="carousel-box">Renewable Energy Plants</div>
+      <div class="carousel-box">Water Conservation Projects</div>
+    </div>
+  </section>
+
+  <section class="carousel-section">
+    <h2>Our Products in Action</h2>
+    <div class="carousel-gallery">
+      <img src="assets/img/home5.jpg" alt="In Use 1">
+      <img src="assets/img/home5.jpg" alt="In Use 2">
+      <img src="assets/img/home5.jpg" alt="In Use 3">
+      <img src="assets/img/home5.jpg" alt="In Use 4">
+    </div>
+  </section>
+
+  <section class="carousel-section alt">
+    <h2>What Our Partners Say</h2>
+    <div class="testimonial-carousel">
+      <div class="testimonial-slide">
+        <p>“Laguna's commitment to sustainability is inspiring. Their partnership has helped our community thrive.”</p>
+        <strong>– EcoCert Foundation</strong>
+      </div>
+      <div class="testimonial-slide">
+        <p>“Working with Laguna ensures fair wages and ethical treatment for all our artisans.”</p>
+        <strong>– Fair Trade Alliance</strong>
+      </div>
+      <div class="testimonial-slide">
+        <p>“Together, we've offset tons of CO2 through innovative shipping solutions.”</p>
+        <strong>– Carbon Neutral Co.</strong>
+      </div>
+    </div>
+  </section>
+
+  <section class="carousel-section">
+    <h2>Community Collaborations</h2>
+    <div class="collaboration-carousel">
+      <div class="collab-card">
+        <img src="assets/img/home1.jpg" alt="Local Recycling">
+        <div class="collab-text">
+          <h3>Local Recycling Drives</h3>
+          <p>Organized quarterly with city partners to reduce landfill waste.</p>
+        </div>
+      </div>
+      <div class="collab-card">
+        <img src="assets/img/home2.jpg" alt="School Workshops">
+        <div class="collab-text">
+          <h3>School Sustainability Workshops</h3>
+          <p>Teaching youth the power of conscious consumption and reuse.</p>
+        </div>
+      </div>
+      <div class="collab-card">
+        <img src="assets/img/home3.jpg" alt="Beach Cleanup">
+        <div class="collab-text">
+          <h3>Beach Cleanup Days</h3>
+          <p>Volunteer efforts organized monthly to keep coastlines pristine.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Laguna. All rights reserved. | Clean. Ethical. Intentional.
+  </footer>
+</body>
+</html>

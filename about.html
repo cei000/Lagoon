@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Laguna</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Helvetica Neue', sans-serif;
+        background-color: #b6d9dc;
+        color: #ffffff;
+      }
+      header {
+        padding: 20px;
+        background-color: rgb(182, 217, 220,0.7);
+        backdrop-filter: blur(10px);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #8fbfc8;
+        margin-left: 20px;
+      }
+      nav {
+        margin-right: 20px;
+      }
+      nav a {
+        margin: 0 10px;
+        text-decoration: none;
+        color: #8fbfc8;
+        font-weight: bold;
+      }
+      .hero-image {
+        margin-top: 80px;
+        width: 100%;
+        height: 500px;
+        background-image: url('assets/img/home7.jpg');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(15px);
+        border-radius: 20px;
+        padding: 30px;
+        max-width: 800px;
+        color: #ffffff;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+      section {
+        padding: 60px 20px;
+        text-align: center;
+      }
+      .carousel-wrapper, .sustainability-features, .glass-carousel {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 30px;
+      }
+      .carousel-card, .sustain-card, .glass-item, .vertical-item {
+  width: 95%;
+  max-width: 1000px;
+  width: 90%;
+  max-width: 800px;
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        width: 250px;
+        transition: transform 0.3s ease;
+      }
+      .carousel-card:hover, .sustain-card:hover, .glass-item:hover, .vertical-item:hover {
+        transform: scale(1.05);
+        background: rgba(255, 255, 255, 0.35);
+      }
+      .carousel-card img {
+        width: 100%;
+        border-radius: 15px;
+        margin-bottom: 15px;
+      }
+      h2 {
+        color: #8fbfc8;
+        font-size: 2rem;
+        margin-bottom: 10px;
+      }
+      p {
+        font-size: 1rem;
+        color: #555;
+      }
+      .vertical-carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1000px;
+
+        max-height: 600px;
+        overflow-y: auto;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(15px);
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        scroll-snap-type: y mandatory;
+        padding: 20px;
+        margin-top: 30px;
+      }
+      .vertical-item {
+        flex: 0 0 auto;
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 20px;
+        text-align: center;
+        color: #8fbfc8;
+        font-weight: bold;
+        scroll-snap-align: start;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        width: 800px;
+      }
+      .vertical-item:hover {
+        transform: scale(1.05);
+        background: rgba(255, 255, 255, 0.35);
+      }
+      .vertical-item h3 {
+        margin-bottom: 10px;
+        font-size: 1.5rem;
+      }
+      .vertical-item p {
+        font-size: 0.95rem;
+        color: #555;
+      }
+      footer {
+        text-align: center;
+        padding: 40px 20px;
+        font-size: 0.9rem;
+        background-color: #b6d9dc;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">Laguna</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="shop.html">Shop</a>
+        <a href="sustainability.html">Sustainability</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <div class="hero-image">
+      <div class="glass-card">
+        <h1>About Laguna</h1>
+        <p>
+          At Laguna, we are dedicated to creating a fashion and skincare brand that prioritizes sustainability and ethical practices. Our products are made with love for the planet and a deep respect for our customers.
+        </p>
+        <p>
+          We aim to make conscious choices that empower self-expression while protecting the environment.
+        </p>
+      </div>
+    </div>
+
+    <section>
+      <h2>Eco Values</h2>
+      <div class="carousel-wrapper">
+        <div class="carousel-card">
+          <img src="https://via.placeholder.com/250x180?text=Eco+Fabric" alt="Eco Fabric">
+          <h3>Eco-Friendly Fabric</h3>
+          <p>Our textiles are sourced responsibly and crafted for longevity.</p>
+        </div>
+        <div class="carousel-card">
+          <img src="https://via.placeholder.com/250x180?text=Cruelty+Free" alt="Cruelty Free">
+          <h3>Cruelty-Free</h3>
+          <p>No animals harmed during product development or testing.</p>
+        </div>
+        <div class="carousel-card">
+          <img src="https://via.placeholder.com/250x180?text=Carbon+Neutral" alt="Carbon Neutral">
+          <h3>Carbon Neutral</h3>
+          <p>We offset emissions to maintain a clean environmental footprint.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Our Commitment to Sustainability</h2>
+      <p>Every decision is made with the planet in mind — from seed to skin, fiber to fashion.</p>
+      <div class="sustainability-features">
+        <div class="sustain-card">Organic Materials</div>
+        <div class="sustain-card">Zero-Waste Production</div>
+        <div class="sustain-card">Carbon Neutral Shipping</div>
+        <div class="sustain-card">Cruelty-Free</div>
+        <div class="sustain-card">Transparent Supply Chain</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Inside Laguna</h2>
+      <p>Meet the values that shape our products and community.</p>
+      <div class="glass-carousel">
+        <div class="glass-item">
+          <h3>Our Story</h3>
+          <p>Born from a desire to harmonize fashion and sustainability.</p>
+        </div>
+        <div class="glass-item">
+          <h3>Our Mission</h3>
+          <p>To craft products that empower self-expression while nurturing the planet.</p>
+        </div>
+        <div class="glass-item">
+          <h3>Our Values</h3>
+          <p>Guided by transparency, creativity, and compassion.</p>
+        </div>
+        <div class="glass-item">
+          <h3>Our Vision</h3>
+          <p>To make sustainable living stylish and accessible to all.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Our Principles</h2>
+      <p>These principles guide our every decision and product.</p>
+      <div class="vertical-carousel">
+        <div class="vertical-item">
+          <img src="assets/img/integrity.jpg" alt="Integrity" style="width:100%; border-radius: 15px; margin-bottom: 10px;">
+          <h3>Integrity</h3>
+          <p>We do the right thing, always.</p>
+        </div>
+        <div class="vertical-item">
+          <img src="assets/img/innovation.jpg" alt="Innovation" style="width:100%; border-radius: 15px; margin-bottom: 10px;">
+          <h3>Innovation</h3>
+          <p>We evolve to protect the planet and inspire others.</p>
+        </div>
+        <div class="vertical-item">
+          <img src="assets/img/inclusivity.jpg" alt="Inclusivity" style="width:100%; border-radius: 15px; margin-bottom: 10px;">
+          <h3>Inclusivity</h3>
+          <p>We celebrate every identity, culture, and story.</p>
+        </div>
+        <div class="vertical-item">
+          <img src="assets/img/impact.jpg" alt="Impact" style="width:100%; border-radius: 15px; margin-bottom: 10px;">
+          <h3>Impact</h3>
+          <p>We measure success by how we uplift people and nature.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      &copy; 2025 Laguna. All rights reserved. | Clean. Ethical. Intentional.
+    </footer>
+  </body>
+</html>
