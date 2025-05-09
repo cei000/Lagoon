@@ -31,7 +31,7 @@
     .logo {
       font-size: 1.8rem;
       font-weight: bold;
-      color: #8fbfc8;
+      color: #77979d;
       margin-left: 20px;
     }
 
@@ -41,7 +41,7 @@
 
     nav a {
       margin: 0 10px;
-      color: #8fbfc8;
+      color: #77979d;
       text-decoration: none;
       font-weight: 700;
       font-size: 1rem;
@@ -174,14 +174,33 @@
       color: #8fbfc8;
     }
 
+  
     @media (max-width: 768px) {
-      .collab-card {
-        flex-direction: column;
-      }
-      .collab-card img {
-        width: 100%;
-      }
-    }
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+  @media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+
+  nav a {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+  }
+}
+
+}
+
   </style>
 </head>
 <body>
@@ -195,6 +214,8 @@
       <a href="contact.html">Contact</a>
     </nav>
   </header>
+
+  <!-- The code below has been obtained from "https://www.freecodecamp.org/news/how-to-build-a-carousel-in-html-css-js/" (freeCodeCamp – Carousel Tutorial) and adapted -->
 
   <!-- Page content remains unchanged -->
 
